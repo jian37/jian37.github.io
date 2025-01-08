@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>減肥產品 APP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ff6f61;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .product h2 {
+            margin-top: 10px;
+        }
+        .product button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .product button:hover {
+            background-color: #ff4c41;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>減肥產品 APP</h1>
+    </header>
+    <nav>
+        <a href="#home">首頁</a>
+        <a href="#tools">健康工具</a>
+        <a href="#user">我的帳戶</a>
+        <a href="#contact">聯絡我們</a>
+    </nav>
+    <div class="container" id="home">
+        <section class="product">
+            <img src="https://via.placeholder.com/400" alt="產品圖片">
+            <h2>瘦身飲品</h2>
+            <p>一款專為快速瘦身設計的飲品，適合所有年齡段。</p>
+            <button>立即購買</button>
+        </section>
+        <section class="product">
+            <img src="https://via.placeholder.com/400" alt="產品圖片">
+            <h2>健康膠囊</h2>
+            <p>每天一粒，讓您輕鬆燃燒多餘脂肪。</p>
+            <button>立即購買</button>
+        </section>
+    </div>
+    <div class="container" id="tools">
+        <h2>健康工具</h2>
+        <form>
+            <label for="weight">體重 (kg):</label>
+            <input type="number" id="weight" placeholder="輸入您的體重" required>
+            <label for="height">身高 (cm):</label>
+            <input type="number" id="height" placeholder="輸入您的身高" required>
+            <button type="button" onclick="calculateBMI()">計算 BMI</button>
+        </form>
+        <p id="bmiResult"></p>
+    </div>
+    <div class="container" id="user">
+        <h2>我的帳戶</h2>
+        <p>查看您的購物記錄和健康目標。</p>
+    </div>
+    <div class="container" id="contact">
+        <h2>聯絡我們</h2>
+        <p>如果您有任何問題，請填寫下方表單：</p>
+        <form>
+            <input type="text" placeholder="您的姓名" required>
+            <input type="email" placeholder="您的電子郵件" required>
+            <textarea rows="5" placeholder="您的留言"></textarea>
+            <button type="submit">送出</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2025 減肥產品 APP. 保留所有權利。</p>
+    </footer>
+
+    <script>
+        function calculateBMI() {
+            const weight = document.getElementById("weight").value;
+            const height = document.getElementById("height").value;
+            if (weight && height) {
+                const bmi = (weight / ((height / 100) ** 2)).toFixed(2);
+                document.getElementById("bmiResult").innerText = `您的 BMI 是 ${bmi}`;
+            } else {
+                document.getElementById("bmiResult").innerText = "請輸入有效的身高和體重。";
+            }
+        }
+    </script>
+</body>
+</html>
